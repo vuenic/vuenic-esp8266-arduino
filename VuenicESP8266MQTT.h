@@ -7,6 +7,9 @@ class VuenicESP8266MQTT
 {
     public:
       VuenicESP8266MQTT(String apiKey);
+    
+    private:
+      String _apiKey;
 };
 
 #endif
