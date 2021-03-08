@@ -9,11 +9,12 @@ class VuenicESP8266HTTP
     public:
       VuenicESP8266HTTP(String apiKey);
       void begin();
-
+      void add(String key, String value);
       bool wifiConnection(String SSID, String wifiPassword);
       
     private:
       String _apiKey;
+      String jsonString = "{}";
       char* _wifiSSID;
       char* _wifiPass;
       String ipToString(IPAddress ip);

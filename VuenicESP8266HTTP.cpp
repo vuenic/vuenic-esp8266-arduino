@@ -4,6 +4,16 @@ VuenicESP8266HTTP::VuenicESP8266HTTP(String apiKey) {
     _apiKey = apiKey;
 }
 
+// String Value
+void VuenicESP8266HTTP::add(String key, String value) {
+    DynamicJsonDocument doc(1024);
+    deserializeJson(doc, jsonString);    
+    doc[key] = value;
+    String newInsert;
+    serializeJson(doc, newInsert);
+    jsonString = newInsert;
+}
+
 bool VuenicESP8266HTTP::wifiConnection(String wifiSSID, String wifiPassword) {
     char wifiSSIDChar[wifiSSID.length()+1];
     char wifiPasswordChar[wifiPassword.length()+1];
