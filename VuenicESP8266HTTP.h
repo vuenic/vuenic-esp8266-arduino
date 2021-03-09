@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 
 class VuenicESP8266HTTP
 {
@@ -13,10 +14,13 @@ class VuenicESP8266HTTP
       void add(String key, int value);
       void add(String key, float value);
       void add(String key, double value);
+      String send();
       bool wifiConnection(String SSID, String wifiPassword);
       
     private:
       String _apiKey;
+      String _server = "http://api.vuenic.com/v1/devices";
+      String _port = "80";
       String jsonString = "{}";
       char* _wifiSSID;
       char* _wifiPass;

@@ -44,6 +44,40 @@ void VuenicESP8266HTTP::add(String key, double value) {
     jsonString = newInsert;
 }
 
+String VuenicESP8266HTTP::send(){
+    WiFiClient client;
+    HTTPClient http;
+	Serial.println("[HTTP] Connecting to "+_server+"...");
+	http.begin(client, _server); 
+    http.addHeader("Accept", "application/json");
+    http.addHeader("Content-Type", "application/json");
+    http.addHeader("Authorization", _apiKey);
+	Serial.println("[HTTP] POST...");
+	Serial.println("[HTTP]" + jsonString);
+	int httpCode = http.POST(jsonString);
+
+    if(httpCode > 0) {
+       Serial.println("[HTTP] POST... code: "+(String)httpCode);
+
+       if(httpCode == 201) {
+           String payload = http.getString();
+           Serial.println("[HTTP] " + payload);
+           Serial.println("[HTTP] Created");
+       }
+       else {
+           String payload = http.getString();
+           Serial.println("[HTTP] " + payload);
+           Serial.println("[HTTP] Error");
+       }
+   }
+   else {
+       Serial.println("[HTTP] POST... failed, error: "+(String)http.errorToString(httpCode).c_str());
+   }
+   http.end();
+   return (String)httpCode;
+}
+
+
 bool VuenicESP8266HTTP::wifiConnection(String wifiSSID, String wifiPassword) {
     char wifiSSIDChar[wifiSSID.length()+1];
     char wifiPasswordChar[wifiPassword.length()+1];
