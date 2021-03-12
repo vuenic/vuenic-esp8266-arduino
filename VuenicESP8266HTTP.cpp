@@ -47,31 +47,31 @@ void VuenicESP8266HTTP::add(String key, double value) {
 String VuenicESP8266HTTP::send(){
     WiFiClient client;
     HTTPClient http;
-	Serial.println("[HTTP] Connecting to "+_server+"...");
+	Serial.println("[Vuenic HTTP] Connecting to "+_server+"...");
 	http.begin(client, _server); 
     http.addHeader("Accept", "application/json");
     http.addHeader("Content-Type", "application/json");
     http.addHeader("Authorization", _apiKey);
-	Serial.println("[HTTP] POST...");
-	Serial.println("[HTTP]" + jsonString);
+	Serial.println("[Vuenic HTTP] POST...");
+	Serial.println("[Vuenic HTTP]" + jsonString);
 	int httpCode = http.POST(jsonString);
 
     if(httpCode > 0) {
-       Serial.println("[HTTP] POST... code: "+(String)httpCode);
+       Serial.println("[Vuenic HTTP] POST... code: "+(String)httpCode);
 
        if(httpCode == 201) {
            String payload = http.getString();
-           Serial.println("[HTTP] " + payload);
-           Serial.println("[HTTP] Created");
+           Serial.println("[Vuenic HTTP] " + payload);
+           Serial.println("[Vuenic HTTP] Successfull");
        }
        else {
            String payload = http.getString();
-           Serial.println("[HTTP] " + payload);
-           Serial.println("[HTTP] Error");
+           Serial.println("[Vuenic HTTP] " + payload);
+           Serial.println("[Vuenic HTTP] Error");
        }
    }
    else {
-       Serial.println("[HTTP] POST... failed, error: "+(String)http.errorToString(httpCode).c_str());
+       Serial.println("[Vuenic HTTP] POST... failed, error: "+(String)http.errorToString(httpCode).c_str());
    }
    http.end();
    return (String)httpCode;
