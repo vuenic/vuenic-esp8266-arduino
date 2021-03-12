@@ -15,7 +15,7 @@ class VuenicESP8266HTTP
       void add(String key, float value);
       void add(String key, double value);
       String send();
-      bool wifiConnection(String SSID, String wifiPassword);
+      bool wifiConnection(String wifiSSID, String wifiPassword);
       
     private:
       String _apiKey;
