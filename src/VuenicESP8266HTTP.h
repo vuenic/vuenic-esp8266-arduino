@@ -1,5 +1,5 @@
-#ifndef Vuenic8266HTTP_H
-#define Vuenic8266HTTP_H
+#ifndef VuenicESP8266HTTP_H
+#define VuenicESP8266HTTP_H
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
