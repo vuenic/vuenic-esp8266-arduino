@@ -44,6 +44,7 @@ void VuenicESP8266HTTP::add(String key, double value) {
     jsonString = newInsert;
 }
 
+// Send Data to Vuenic Platform
 String VuenicESP8266HTTP::send(){
     WiFiClient client;
     HTTPClient http;
@@ -77,7 +78,7 @@ String VuenicESP8266HTTP::send(){
    return (String)httpCode;
 }
 
-
+// Simple Wifi Connection 
 bool VuenicESP8266HTTP::wifiConnection(String wifiSSID, String wifiPassword) {
     char wifiSSIDChar[wifiSSID.length()+1];
     char wifiPasswordChar[wifiPassword.length()+1];
@@ -107,6 +108,7 @@ bool VuenicESP8266HTTP::wifiConnection(String wifiSSID, String wifiPassword) {
     return true;
 }
 
+// Showing IP Address
 String VuenicESP8266HTTP::ipToString(IPAddress ip){
     String s="";
     for (int i=0; i<4; i++)
