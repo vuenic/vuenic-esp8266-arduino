@@ -15,8 +15,8 @@ void loop() {
   float temperature = 30.50;
   float humidity = 90.50;
 
-  vuenic.add("1", temperature);
-  vuenic.add("3", humidity);
+  vuenic.add(1, temperature);
+  vuenic.add(3, humidity);
   vuenic.send();
 
   delay(8000);

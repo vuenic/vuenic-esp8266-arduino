@@ -1,6 +1,6 @@
-# Dokumentasi Integrasi Vuenic ESP8266
+# Integrasi Vuenic ESP8266
 
-Nama Sensor         | Tipe Data Sensor  | Kode Sensor (String)  | 
+Nama Sensor         | Tipe Data Sensor  | Kode Sensor (int)     | 
 --------------------|-------------------| ----------------------|
 Kelembaban          | float             | 1                     |
 Kelembaban Tanah    | float             | 2                     |

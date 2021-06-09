@@ -5,40 +5,40 @@ VuenicESP8266HTTP::VuenicESP8266HTTP(String apiKey) {
 }
 
 // String Value
-void VuenicESP8266HTTP::add(String key, String value) {
+void VuenicESP8266HTTP::add(int key, String value) {
     DynamicJsonDocument doc(1024);
     deserializeJson(doc, jsonString);    
-    doc[key] = value;
+    doc[String(key)] = value;
     String newInsert;
     serializeJson(doc, newInsert);
     jsonString = newInsert;
 }
 
 // Integer Value
-void VuenicESP8266HTTP::add(String key, int value) {
+void VuenicESP8266HTTP::add(int key, int value) {
     DynamicJsonDocument doc(1024);
     deserializeJson(doc, jsonString);    
-    doc[key] = value;
+    doc[String(key)] = value;
     String newInsert;
     serializeJson(doc, newInsert);
     jsonString = newInsert;
 }
 
 // Float Value
-void VuenicESP8266HTTP::add(String key, float value) {
+void VuenicESP8266HTTP::add(int key, float value) {
     DynamicJsonDocument doc(1024);
     deserializeJson(doc, jsonString);    
-    doc[key] = value;
+    doc[String(key)] = value;
     String newInsert;
     serializeJson(doc, newInsert);
     jsonString = newInsert;
 }
 
 // Double Value
-void VuenicESP8266HTTP::add(String key, double value) {
+void VuenicESP8266HTTP::add(int key, double value) {
     DynamicJsonDocument doc(1024);
     deserializeJson(doc, jsonString);    
-    doc[key] = value;
+    doc[String(key)] = value;
     String newInsert;
     serializeJson(doc, newInsert);
     jsonString = newInsert;
