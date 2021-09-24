@@ -17,3 +17,4 @@ Intensitas Cahaya   | float             | 12                    |
 Debu/Asap           | float             | 13                    |
 Gas O2              | float             | 14                    |
 Gas CO2             | float             | 15                    |
+Ketinggian Air      | float             | 16                    |
